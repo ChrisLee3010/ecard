@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Your Card</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 500px;
+            margin: 60px auto;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .required {
+            color:red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Create Your E-Card</h2>
+
+    <form action="/card" method="GET">
+        <label>Full Name <span class = "required">*</span> </label>
+        <input type="text" name="name" placeholder="Chris Nguyen" required>
+
+        <label>Phone <span class = "required">*</span></label>
+        <input type="text" name="phone" placeholder="+84901234567" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="chris@example.com">
+
+        <label>Company</label>
+        <input type="text" name="company" placeholder="Micafi">
+
+        <label>Job Title</label>
+        <input type="text" name="title" placeholder="Operations">
+
+        <label>Profile image link</label>
+        <input type="text" name="image_link" placeholder="Imgur.com">
+
+        <button type="submit">Generate My Card →</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ name }}'s Card</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 400px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .qr {
+    width: 180px;
+    height: 180px;
+    border-radius: 0;
+}
+
+        h2 { margin-bottom: 4px; }
+        p { color: gray; margin: 4px 0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+
+        {% if image_link %}
+            <img src = "{{image_link}}" alt = "profile picture">
+        {% else %}
+            <img src="https://via.placeholder.com/150" alt="Default Picture">
+        {% endif %}
+
+
+        <h2>{{ name }}</h2>
+        <p>{{ title }} — {{ company }}</p>
+        <p>{{ phone }}</p>
+        <p>{{ email }}</p>
+        <img src="data:image/png;base64,{{ qr_base64 }}" width="150" class="qr">
+    </div>
+</body>
+</html>
