@@ -43,10 +43,13 @@
         {% endif %}
 
 
-        <h2>{{ name }}</h2>
-        <p>{{ title }} — {{ company }}</p>
-        <p>{{ phone }}</p>
-        <p>{{ email }}</p>
+    <p><a href="tel:{{ phone }}">📞 {{ phone }}</a></p>
+    <p><a href="mailto:{{ email }}">✉️ {{ email }}</a></p>
+    <p>{{ title }} — {{ company }}</p>
+
+    <a href="/download-contact?name={{ name }}&phone={{ phone }}&email={{ email }}&company={{ company }}&title={{ title }}">
+        <button>💾 Save Contact</button>
+    </a>
         <img src="data:image/png;base64,{{ qr_base64 }}" width="150" class="qr">
     </div>
 </body>
