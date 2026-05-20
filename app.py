@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 import qrcode
 import io
 import base64
@@ -9,6 +9,27 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("form.html")
+
+@app.route("/download-contact")
+def download_contact():
+    name = request.args.get("name", "")
+    phone = request.args.get("phone", "")
+    email = request.args.get("email", "")
+    company = request.args.get("company", "")
+    title = request.args.get("title", "")
+    
+    vcf = f"""BEGIN:VCARD
+FN:{name}
+TEL:{phone}
+EMAIL:{email}
+ORG:{company}
+TITLE:{title}
+END:VCARD"""
+    return Response(
+        vcf,
+        mimetype="text/vcard",
+        headers={"Content-Disposition": f"attachment; filename={name}.vcf"}
+    )
 
 @app.route("/card")
 def form():
